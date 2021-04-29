@@ -1,0 +1,255 @@
+1.As 2 seconds are given so in 1Sec=4*10^8 operation and in 2sec=2*4*10^8 operation
+
+2.whenever we input t queries cases and n inner testcase take full n cases
+
+3.whenever finding the max element when then loop is over check another time for max condition
+
+4.when using cout<<std::fixed<<pie; :-by default precision=5 means rounding off upto 5 decimal places to incresese it we use
+cout.precision(13);//it is used once and affect all cout
+cout<<std::fixed<<pie;
+
+5.to find size of array
+  int  arr[] = {1, 2, 3, 4, 5, 6}; 
+  int size = *(&arr + 1) - arr;
+   
+  &arr+1 increase the value by 6*4=24 byte so it point 6th+1 position
+  since (arr) is a pointer and (&arr+1) is an address to subtract them we have to make both of them pointers 
+
+6.1^2^3^......^n-1^n=? (in O(1) time)
+  if n%4  ans  (for derivation write all of it on paper)
+      0    n
+      1    1
+      2   n+1
+      3    0
+  similarly for 4^5^6^....11^12^13=(1^2^..^4)^(1^2^....^13)=(4)^(1)=5
+
+7. stdout/cout is line-buffered that is the output doesn’t get sent to the OS until you write a newline or explicitly flush the buffer 
+    cout.flush()-   in c++
+    fflush(stdout)- in c
+A buffer flush is the transfer of computer data from a temporary storage area to the computer’s permanent memory.
+exit(0); to exit the program
+
+8.(1<<4)=16  (1<<5)=32
+
+9.mt19937_64 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+  mt19973_64 is an algorithm 
+
+10. To sort in key value pair 
+    int a[6]={2,4,1,0,9,3};
+    vector<pair<int,int> > que;
+    for(int i=0;i<n;i++){
+    que.emplace_back(a[i],i);
+    }
+    sort(que.begin(),que.end());
+
+11. memset(a,0,sizeof(a)); is for array for vector we use 
+    1.fill(v.begin(),v.end(),0);
+
+12. To find lcm of numbers we cannot find it :as you think check it out on gfg
+
+13.how to round of 2 decimal places in c++
+
+int bb = std::stoi(b, nullptr, 2);
+//========================================================================
+
+**2D Vector**
+
+#To creat a 2D(n*m) vector(with initial value 0) :-
+vector<vector<int> > v(n,vector<int>(m,0));
+
+
+#To create a 2D vector with no size than resize it with n
+vector<vector<int> > v;
+v.resize(n);
+
+vector<bool> b;
+b.resize(n,0);//size of bool,initial value
+
+=============
+#How to add row in the 2D vector(we have to add 1D vector as a row in it)
+std::vector<std::vector<int> > v;
+vector<int> a={1,2,3};
+v.push_back(a);
+
+==========
+#Sort a 2D vector:
+when you sort a 2D vector:-
+vector<vector<int> > v;
+after input in v
+
+a.sort(v.begin(),v.end())
+when sorting like this it checks the first element of each row and if first element of both found equal than it checks the next consecutive element of each row 
+eg:-
+   1 35 95 30
+   1 35 59 62
+   after applying sort:-
+   1 35 59 62 
+   1 35 95 30
+
+b. for(int i=0;i<n;i++){
+	sort(v[i].begin(),v[i].end());
+   }
+    
+==================
+#Sort according to second element in vector<pair<int,int> > v;
+bool sortbysec(const pair<int, int> &a,
+               const pair<int, int> &b)
+{
+	return (a.second < b.second);
+}
+vector<pair<int,int> > v;
+
+//to sort according ascending order
+sort(v.begin(),v.end(),sortbysec);
+
+//to sort in descending order
+sort(v.rbegin(), v.rend(), sortbysec);
+
+
+//======================================
+
+to copy a vector into an another vector(changes made in one not reflected in another)-
+vector<int> a(3,1);
+vector<int> b=a;
+
+//==========================================================================
+
+//binary exponenciation
+ll power(ll a, ll b) {
+	ll result = 1;
+	while (b > 0) {
+		if (b % 2 == 1)
+			result = (result * 1LL * a);
+		a = (a * 1ll * a);
+		b = b / 2;
+	}
+	return result;
+}
+
+
+//=======================================
+
+//prime seive
+const int mxn = 1e6 + 7;
+int prime[mxn];
+std::vector<int> v;
+int total_pr[mxn] = {0};
+int no_pr = 0;
+int idx;
+
+void seive() {
+	memset(prime, 0, sizeof(prime));
+	prime[0] = -1;
+	prime[1] = -1;
+	for (int i = 2; i <= mxn; i++) {
+		if (prime[i] == 0) {
+			v.push_back(i);
+			no_pr += 1;
+			for (int j = 2; j * i <= mxn; j++) {
+				prime[j * i] = -1;
+			}
+		}
+		total_pr[i] = no_pr;
+	}
+}
+
+//=========================================
+//to check the string is palindrome or not
+
+bool isPalindrome(string str)
+{
+    // Start from leftmost and rightmost corners of str
+    int l = 0;
+    int h = str.length() - 1;
+
+    // Keep comparing characters while they are same
+    while (h > l)
+    {
+        if (str[l++] != str[h--])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+//=========================================
+
+To convert 12 hr format into 24 hr format 
+example:
+12:01 AM->0001
+12:01 PM->1201
+04:12 PM->1612
+input format-12:01 AM
+
+int hour24(string s) {
+    //ans contain the 24hr time
+    string ans;
+    if (s[6] == 'A') {
+        if (s[0] == '1' && s[1] == '2') {
+            ans = ans + "00" + s[3] + s[4];
+        }
+        else {
+            ans = ans + s[0] + s[1] + s[3] + s[4];
+        }
+    }
+    else {
+        //12:00 AM 11:42 PM
+        if (s[0] == '1' && s[1] == '2') {
+
+            ans = ans + s[0] + s[1] + s[3] + s[4];
+        }
+        else {
+            string kk;
+            kk = kk + s[0] + s[1];
+            int ikk = stoi(kk);
+            ikk += 12;
+            ans = ans + to_string(ikk);
+            ans = ans + s[3] + s[4];
+        }
+    }
+    int ians = stoi(ans);
+    return ians;
+}
+
+
+//=========================================
+pythagorean triplet
+void pythagoreanTriplets(int limit)
+{
+    int a, b, c = 0;
+    int both = 0;
+    int m = 2;
+    while (c < limit) {
+
+        // now loop on j from 1 to i-1
+        for (int n = 1; n < m; ++n) {
+
+            a = m * m - n * n;
+            b = 2 * m * n;
+            c = m * m + n * n;
+
+            if (c > limit)
+                break;
+            
+            cout<<a
+            if ((a * a) == (1 + (2 * b))) {
+                both++;
+                mpp[c] = both;
+                cout << a << " " << b << " " << c << endll;
+            }
+        }
+        m++;
+    }
+}
+//============================================================
+what is #ifndef?
+https://www.geeksforgeeks.org/cpp-preprocessor-directives-set-2/
+
+char a = '4';
+int ia = a - '0';
+
+how to find sum of bitwise and of all subarray?
+https://www.geeksforgeeks.org/sum-of-bitwise-and-of-all-subarrays/
+(nice method really can learn something)
+and 

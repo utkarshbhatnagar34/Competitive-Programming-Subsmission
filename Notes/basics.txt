@@ -1,0 +1,30 @@
+The fundamental theorm of arithmatic:-
+  every number can be broken down to smaller number which is always prime numbers
+  30=2+2+2+..+2(15 times)
+  30=3+3+...+3(10 times)
+  30=5+5+..+5(6 times)
+  than we can multiply these number to built 30 
+  resourse:
+  https://www.khanacademy.org/math/in-in-grade-10-ncert/x573d8ce20721c073:real-numbers/x573d8ce20721c073:fundamental-theorem-of-arithmetic/v/the-fundamental-theorem-of-arithmetic-1
+
+The euclids algorithm:-
+Q:
+  if i have 2 bricks of size 32 and 12 ,you want to divide it both in equal part such that no remainder is left ,what will be the largest size of brick?
+  
+  32=12.2+8
+  12=8.1+4
+  8=4.2+0   so 4 is the largest brick we can use 
+  
+Ans:
+  if   
+resourse:
+https://www.khanacademy.org/math/in-in-grade-10-ncert/x573d8ce20721c073:real-numbers/x573d8ce20721c073:euclid-s-division-algorithm/v/euclids-division-algorithm-visualised
+
+
+Chicken nugget theorm(Frobenius Number)
+https://www.youtube.com/watch?v=fTZP2e-_rjA
+https://artofproblemsolving.com/wiki/index.php/Chicken_McNugget_Theorem
+
+1 knapsack
+refer to it:
+https://www.youtube.com/watch?v=AelfmnOnCRw
