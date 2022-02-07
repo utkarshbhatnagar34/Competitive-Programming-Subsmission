@@ -1,0 +1,1 @@
+{"name":"Local: GridPath","url":"/home/utkarsh/Documents/CP Submissions/CSES DP/GridPath.cpp","tests":[{"id":1634447417979,"input":"4\n....\n.*..\n...*\n*...","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/utkarsh/Documents/CP Submissions/CSES DP/GridPath.cpp","group":"local","local":true}

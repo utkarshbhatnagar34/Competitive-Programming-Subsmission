@@ -78,3 +78,63 @@ int main()
 
   return 0;
 }
+
+/*
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> adj;
+int n, m;
+
+int main() {
+  cin >> n >> m;
+  adj.resize(n);
+
+  for (int i = 0; i < m; i++) {
+    int a, b; cin >> a >> b;
+    adj[a - 1].push_back(b - 1);
+    adj[b - 1].push_back(a - 1);
+  }
+
+  bool visited[n] = {0};
+  queue<int> q;
+  q.push(0);
+  int dist = 0, found = 0;
+  vector<int> ansestor(n, -1);
+  visited[0] = 1;
+
+  while (!q.empty()) {
+    int len = q.size();
+    dist++;
+    while (len--) {
+      int node = q.front();
+      if (node == n - 1) { found = 1 ; break;}
+      for (auto i : adj[node]) {
+        if (visited[i] == 0) {
+          visited[i] = 1;
+          ansestor[i] = node;
+          q.push(i);
+        }
+      }
+      q.pop();
+    }
+    if (found == 1) break;
+  }
+
+  if (ansestor[n - 1] == -1) {
+    cout << "IMPOSSIBLE" << endl; return 0;
+  }
+  cout << dist << endl;
+  int b = n - 1;
+  stack<int> ans;
+  ans.push(n);
+  while (ansestor[b] != -1) {
+    ans.push(ansestor[b] + 1);
+    b = ansestor[b];
+  }
+  for (; ans.size() > 0; ans.pop()) {
+    cout << ans.top() << " ";
+  }
+  return 0;
+}
+*/
