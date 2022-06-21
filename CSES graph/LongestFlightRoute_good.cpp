@@ -50,6 +50,7 @@ int main()
         adj[A - 1].push_back(B - 1);
     }
     //instead of top to bottom to store distance we move bottom to top
+    //we do it 1 as bottom up should start from this node not from any other node and thats the reason we put dist[i]!=0 condition so bottom up start from here
     dist[N - 1] = 1;
     dfs(0);
     if (dist[0] == 0) {
